@@ -133,7 +133,7 @@ const httpServer = createServer(async (req: IncomingMessage, res: ServerResponse
           grant_type: "authorization_code",
         }),
       });
-      const tokenData = await tokenRes.json() as { id_token?: string; error?: string });
+      const tokenData = await tokenRes.json() as { id_token?: string; error?: string };
       if (!tokenData.id_token) {
         sendHtml(res, 401, `<h1>Token exchange failed</h1><pre>${JSON.stringify(tokenData)}</pre>`);
         return;
